@@ -28,7 +28,8 @@ import {
     User,
     Key,
     Goods,
-    Link
+    Link,
+    ChatLineSquare
 } from '@element-plus/icons-vue'
 
 const navName = {
@@ -40,7 +41,8 @@ const navName = {
     admin: '管理员管理',
     user: '用户管理',
     plugin: '插件管理',
-    shop: '插件商店'
+    shop: '插件商店',
+    group: '群聊管理'
 }
 
 const navIcon = {
@@ -52,7 +54,8 @@ const navIcon = {
     admin: shallowRef(Key),
     user: shallowRef(User),
     plugin: shallowRef(Link),
-    shop: shallowRef(Goods)
+    shop: shallowRef(Goods),
+    group: shallowRef(ChatLineSquare)
 }
 
 export {

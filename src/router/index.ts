@@ -22,6 +22,11 @@ const indexChildren: Array<RouteRecordRaw> = [
         component: () => import('../views/app/user.vue')
     },
     {
+        path: '/group',
+        name: 'group',
+        component: () => import('../views/app/group.vue')
+    },
+    {
         path: '/replace',
         name: 'replace',
         component: () => import('../views/app/replace.vue')
