@@ -78,13 +78,15 @@
             <template v-if="serverAdapters.indexOf(form.adapter) >= 0">
                 <el-divider content-position="left">服务配置</el-divider>
                 <el-form-item label="Host地址">
-                    <el-input v-model="form.host" placeholder="服务的地址，本地默认为 127.0.0.1"/>
+                    <el-input v-model="form.host"
+                              :placeholder="form.adapter === 'reverse_ws' ? '监听地址' : '服务的地址，本地默认为 127.0.0.1'"/>
                 </el-form-item>
-                <el-form-item label="HTTP端口">
+                <el-form-item label="HTTP端口" v-if="form.adapter !== 'reverse_ws'">
                     <el-input v-model="form.http_port" placeholder="服务的 HTTP 端口"/>
                 </el-form-item>
                 <el-form-item label="WS端口">
-                    <el-input v-model="form.ws_port" placeholder="服务的 Websocket 端口"/>
+                    <el-input v-model="form.ws_port"
+                              :placeholder="form.adapter === 'reverse_ws' ? 'Amiya 监听的反向 WebSocket 端口' : '服务的 Websocket 端口'"/>
                 </el-form-item>
             </template>
             <template #footer>
@@ -157,6 +159,7 @@ export default class Instance extends Vue {
         cq_http: 'CQ-Http QQ群机器人',
         onebot11: 'OneBot 11 机器人',
         onebot12: 'OneBot 12 机器人',
+        reverse_ws: '反向 WebSocket',
         com_wechat: 'ComWeChat 微信机器人',
         websocket: '反向 Websocket'
     }
@@ -172,6 +175,7 @@ export default class Instance extends Vue {
         'cq_http',
         'onebot11',
         'onebot12',
+        'reverse_ws',
         'com_wechat',
         'websocket'
     ]
