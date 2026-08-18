@@ -30,7 +30,7 @@
             <el-form-item label="AppID">
                 <el-input v-model="form.appid" placeholder="机器人ID"/>
             </el-form-item>
-            <el-form-item label="Token">
+            <el-form-item label="Token" v-if="form.adapter !== 'test_instance'">
                 <el-input v-model="form.token" placeholder="机器人令牌"/>
             </el-form-item>
             <el-form-item label="适配器">
@@ -79,14 +79,14 @@
                 <el-divider content-position="left">服务配置</el-divider>
                 <el-form-item label="Host地址">
                     <el-input v-model="form.host"
-                              :placeholder="form.adapter === 'reverse_ws' ? '监听地址' : '服务的地址，本地默认为 127.0.0.1'"/>
+                              :placeholder="form.adapter === 'reverse_ws' ? '监听地址' : form.adapter === 'test_instance' ? '测试服务监听地址' : '服务的地址，本地默认为 127.0.0.1'"/>
                 </el-form-item>
-                <el-form-item label="HTTP端口" v-if="form.adapter !== 'reverse_ws'">
+                <el-form-item label="HTTP端口" v-if="form.adapter !== 'reverse_ws' && form.adapter !== 'test_instance'">
                     <el-input v-model="form.http_port" placeholder="服务的 HTTP 端口"/>
                 </el-form-item>
                 <el-form-item label="WS端口">
                     <el-input v-model="form.ws_port"
-                              :placeholder="form.adapter === 'reverse_ws' ? 'Amiya 监听的反向 WebSocket 端口' : '服务的 Websocket 端口'"/>
+                              :placeholder="form.adapter === 'reverse_ws' ? 'Amiya 监听的反向 WebSocket 端口' : form.adapter === 'test_instance' ? '测试服务的 WebSocket 端口' : '服务的 Websocket 端口'"/>
                 </el-form-item>
             </template>
             <template #footer>
@@ -161,7 +161,7 @@ export default class Instance extends Vue {
         onebot12: 'OneBot 12 机器人',
         reverse_ws: '反向 WebSocket',
         com_wechat: 'ComWeChat 微信机器人',
-        websocket: '反向 Websocket'
+        test_instance: '测试实例'
     }
 
     public txAdapters = [
@@ -177,7 +177,7 @@ export default class Instance extends Vue {
         'onebot12',
         'reverse_ws',
         'com_wechat',
-        'websocket'
+        'test_instance'
     ]
 
     public form = {}
