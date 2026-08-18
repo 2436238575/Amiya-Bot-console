@@ -30,13 +30,13 @@
             <el-form-item label="AppID">
                 <el-input v-model="form.appid" placeholder="机器人ID"/>
             </el-form-item>
-            <el-form-item label="Token" v-if="form.adapter !== 'test_instance'">
-                <el-input v-model="form.token" placeholder="机器人令牌"/>
-            </el-form-item>
             <el-form-item label="适配器">
                 <el-select v-model="form.adapter">
                     <el-option :label="name" :value="item" v-for="(name, item) in adapterType" :key="item"/>
                 </el-select>
+            </el-form-item>
+            <el-form-item label="Token" v-if="form.adapter !== 'test_instance'">
+                <el-input v-model="form.token" placeholder="机器人令牌"/>
             </el-form-item>
             <el-form-item label="随启动开启">
                 <el-switch v-model="form.is_start" :active-value="1" :inactive-value="0"/>
