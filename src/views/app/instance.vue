@@ -154,14 +154,14 @@ export default class Instance extends Vue {
         qq_guild: 'QQ频道机器人（官方）',
         qq_group: 'QQ群机器人（官方）',
         qq_global: 'QQ全域机器人（官方）',
+        onebot11: 'OneBot 11',
+        onebot12: 'OneBot 12',
+        reverse_ws: '反向 WebSocket',
+        test_instance: '测试实例',
         kook: 'KOOK机器人',
         mirai_api_http: 'Mirai-api-http QQ群机器人',
         cq_http: 'CQ-Http QQ群机器人',
-        onebot11: 'OneBot 11 机器人',
-        onebot12: 'OneBot 12 机器人',
-        reverse_ws: '反向 WebSocket',
-        com_wechat: 'ComWeChat 微信机器人',
-        test_instance: '测试实例'
+        com_wechat: 'ComWeChat 微信机器人'
     }
 
     public txAdapters = [
@@ -171,13 +171,13 @@ export default class Instance extends Vue {
     ]
 
     public serverAdapters = [
-        'mirai_api_http',
-        'cq_http',
         'onebot11',
         'onebot12',
         'reverse_ws',
-        'com_wechat',
-        'test_instance'
+        'test_instance',
+        'mirai_api_http',
+        'cq_http',
+        'com_wechat'
     ]
 
     public form = {}
